@@ -69,8 +69,10 @@ for lst in exp_var[:]:
     strdd_df['strdd_close'] = strdd_df['ce_close'] + strdd_df['pe_close'] 
     # print(strdd_df.head())
     filename = "Nifty" + "_" + str(curr_date.date()) + "_Strdd_Close_" + str(exp_no) + ".png"
+    csv_filename = "Nifty" + "_" + str(curr_date.date()) + "_Strdd_Close_" + str(exp_no) + ".csv"
     path = "E:\\Key_Indicator_Stock_Market\\" + filename
-
+    csv_path = "E:\\Key_Indicator_Stock_Market\\" + csv_filename
+    strdd_df.to_csv(csv_path, index=False)
     #PLot and Save the image
     plot_and_save_straddle_vs_index(strdd_df, path, title)
     # break
